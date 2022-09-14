@@ -4,10 +4,28 @@ header {
   color: white;
 }
 
+.button {
+  background-color: whitesmoke;
+}
+
+.topPage {
+  background-color: gray;
+  text-align: center;
+  color: white;
+  margin: 0 auto;
+  width: auto;
+  height: max-content;
+}
+
 body {
   background-color: #0a1929;
+  min-height: 100vh;
 }
 .App {
   text-align: center;
   color: white;
+}
+
+.header-image {
+  align-items: flex-end;
 }

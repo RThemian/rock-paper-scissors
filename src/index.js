@@ -14,8 +14,8 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/game" element={<Game />} />
-        <Route path="/game" element={<EndWin />} />
-        <Route path="/game" element={<EndLose />} />
+        <Route path="/endwin" element={<EndWin />} />
+        <Route path="/endlose" element={<EndLose />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
