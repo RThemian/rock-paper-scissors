@@ -3,6 +3,8 @@ import "./App.css";
 import Countdown from "./components/Countdown";
 
 const App = () => {
+  //see this?
+
   const [userPoints, setUserPoints] = useState(0);
   const [computerPoints, setComputerPoints] = useState(0);
   const [turnResult, setTurnResult] = useState(null);
@@ -83,31 +85,72 @@ const App = () => {
 
       <div className="choice container">
         <div className="choice-computer">
-          <h2>COMPUTER</h2>
-          <img
-            className="computer-hand"
-            src={`/images/${computerChoice}.png`}
-            alt=""
-          />
+          <h2>COMPUTER {computerChoice ? computerChoice : ""}</h2>
+          <div className="button-div">
+            {choices.map((choice, index) => (
+              //bring this button code to the images instead, can I map to those images this way?
+
+              <button
+                className="filter"
+                key={index}
+                onClick={() => handleClick(choice)}
+                disabled={gameOver}
+              >
+                {choice === "rock" ? (
+                  <img className="user-hand" src={`/images/rock.png`} alt="" />
+                ) : choice === "paper" ? (
+                  <img className="user-hand" src={`/images/paper.png`} alt="" />
+                ) : (
+                  <img
+                    className="user-hand"
+                    src={`/images/scissors.png`}
+                    alt=""
+                  ></img>
+                )}
+              </button>
+            ))}
+          </div>
         </div>
 
         <Countdown count={count} setCount={setCount} />
 
         <div class="container">
           <div class="row">
-            <h2>USER</h2>
+            <h2>USER {userChoice ? userChoice : ""}</h2>
             <div className="button-div">
               {choices.map((choice, index) => (
+                //bring this button code to the images instead, can I map to those images this way?
+
                 <button
                   className="button"
                   key={index}
                   onClick={() => handleClick(choice)}
                   disabled={gameOver}
                 >
-                  {choice}
+                  {choice === "rock" ? (
+                    <img
+                      className="user-hand"
+                      src={`/images/rock.png`}
+                      alt=""
+                    />
+                  ) : choice === "paper" ? (
+                    <img
+                      className="user-hand"
+                      src={`/images/paper.png`}
+                      alt=""
+                    />
+                  ) : (
+                    <img
+                      className="user-hand"
+                      src={`/images/scissors.png`}
+                      alt=""
+                    ></img>
+                  )}
                 </button>
               ))}
             </div>
+            {/* 
+            
             <div class="col-sm">
               <button>
                 <img className="user-hand" src={`/images/rock.png`} alt="" />
@@ -127,20 +170,9 @@ const App = () => {
                 ></img>
               </button>
             </div>
+            */}
           </div>
         </div>
-      </div>
-      <div className="button-div">
-        {choices.map((choice, index) => (
-          <button
-            className="button"
-            key={index}
-            onClick={() => handleClick(choice)}
-            disabled={gameOver}
-          >
-            {choice}
-          </button>
-        ))}
       </div>
 
       <div className="result">
@@ -150,7 +182,11 @@ const App = () => {
 
       <div className="button-div">
         {gameOver && (
-          <button className="button" onClick={() => reset()}>
+          <button
+            type="button"
+            className="btn btn-warning font-weight-bold"
+            onClick={() => reset()}
+          >
             Restart Game?
           </button>
         )}
