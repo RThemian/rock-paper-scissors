@@ -1,19 +1,14 @@
 header {
-  background-color: gray;
   text-align: center;
   color: white;
 }
 
-.button {
-  background-color: whitesmoke;
+button:hover {
+  background-color: yellow;
 }
 
-img {
-  -khtml-user-select: none;
-  -o-user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
+button:active {
+  background-color: red;
 }
 
 .topPage {
@@ -33,7 +28,16 @@ body {
   text-align: center;
   color: white;
 }
+.title {
+  text-align: center;
+  color: goldenrod;
+  font-size: larger;
+}
 
 .header-image {
   align-items: flex-end;
+}
+
+.filter {
+  filter: brightness(50%);
 }
