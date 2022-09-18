@@ -142,22 +142,6 @@ const App = () => {
             </button>
           )}
         </div>
-        <div></div>
-        <div className="title">
-          <li>Hello!</li>
-        </div>
-        <div className="title">
-          <li>Hi</li>
-          <div className="title">
-            <li>Hello!</li>
-            <div className="title">
-              <li>Hello!</li>
-              <div className="title">
-                <li>Hello!</li>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </>
   );

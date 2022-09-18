@@ -1,19 +1,20 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import App from "./App";
-import Game from "./pages/Game";
+import Home from "./pages/Home/Home";
+
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import EndLose from "./pages/EndLose";
 import EndWin from "./pages/EndWin";
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
-        <Route path="/game" element={<Game />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/game" element={<App />} />
         <Route path="/endwin" element={<EndWin />} />
         <Route path="/endlose" element={<EndLose />} />
       </Routes>
