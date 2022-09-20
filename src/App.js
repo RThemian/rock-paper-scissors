@@ -4,20 +4,20 @@ import Countdown from "./components/Countdown";
 import RunGame from "./components/RunGame";
 
 const App = () => {
-  //see this?
-
   const [userPoints, setUserPoints] = useState(0);
   const [computerPoints, setComputerPoints] = useState(0);
   const [turnResult, setTurnResult] = useState(null);
   const [result, setResult] = useState("Let's see who wins");
   const [gameOver, setGameOver] = useState(false);
   const choices = ["rock", "paper", "scissors"];
+  const [isSelected, setIsSelected] = useState(false);
 
   const [userChoice, setUserChoice] = useState("rock");
   const [computerChoice, setComputerChoice] = useState("rock");
 
   const handleClick = (value) => {
     setUserChoice(value);
+    setIsSelected(true);
     generateComputerChoice();
   };
 
@@ -65,14 +65,11 @@ const App = () => {
                 <button
                   key={index}
                   onClick={() => handleClick(choice)}
+                  className={isSelected ? "button-highlighted" : "user-hand"}
                   disabled={gameOver}
                 >
                   {choice === "rock" ? (
-                    <img
-                      className="user-hand"
-                      src={`/images/rock.png`}
-                      alt=""
-                    />
+                    <img src={`/images/rock.png`} alt="" />
                   ) : choice === "paper" ? (
                     <img
                       className="user-hand"

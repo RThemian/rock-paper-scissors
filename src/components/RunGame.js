@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const RunGame = ({
   userChoice,
@@ -13,15 +13,22 @@ const RunGame = ({
   setGameOver,
   setComputerPoints,
 }) => {
+  const [controlTurn, setControlTurn] = useState(false);
+  const handleClickRound = () => {
+    setInterval(() => {
+      setControlTurn(true);
+    }, 500);
+    setControlTurn(false);
+  };
+
   useEffect(() => {
     const comboMoves = userChoice + computerChoice;
-    if (userPoints <= 4 && computerPoints <= 4) {
+    if (userPoints <= 4 && computerPoints <= 4 && controlTurn) {
       if (
         comboMoves === "scissorspaper" ||
         comboMoves === "rockscissors" ||
         comboMoves === "paperrock"
       ) {
-        // userPoints.current += 1
         const updatedUserPoints = userPoints + 1;
         setUserPoints(updatedUserPoints);
         setTurnResult("User gets the point!");
@@ -66,6 +73,15 @@ const RunGame = ({
       <div className="result">
         <h1>Turn Result: {turnResult}</h1>
         <h1>Final Result: {result}</h1>
+      </div>
+      <div>
+        <button
+          type="button"
+          className="btn btn-danger"
+          onClick={handleClickRound}
+        >
+          Check who wins
+        </button>
       </div>
     </>
   );
