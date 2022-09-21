@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Countdown from "./components/Countdown";
 import RunGame from "./components/RunGame";
+import VolumeBanner from "./components/VolumeBanner";
 
 const App = () => {
   const [userPoints, setUserPoints] = useState(0);
@@ -37,6 +38,7 @@ const App = () => {
 
   return (
     <>
+      <VolumeBanner />
       <div className="title container">
         <h1 className="title">Rock-Paper-Scissors</h1>
       </div>
