@@ -3,12 +3,16 @@ header {
   color: white;
 }
 
+button:active {
+  background-color: red;
+}
+
 button:hover {
   background-color: yellow;
 }
 
-button:active {
-  background-color: red;
+.button-highlighted {
+  background-color: rgb(208, 198, 198);
 }
 
 .topPage {

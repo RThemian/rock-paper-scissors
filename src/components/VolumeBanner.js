@@ -5,7 +5,7 @@ import gameMusicElectric from "../sounds/gameMusicElectric.mp3";
 const VolumeBanner = () => {
   const [play, { stop }] = useSound(gameMusicElectric); //here
   //toggle between play and stop
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const playMusic = () => {
     // const [playCorrect] = useSound(correctSound
     setIsPlaying((isPlaying) => !isPlaying);
