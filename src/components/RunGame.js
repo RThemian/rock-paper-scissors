@@ -6,6 +6,7 @@ const RunGame = ({
   userPoints,
   computerPoints,
   setUserPoints,
+  count,
   result,
   turnResult,
   setTurnResult,
@@ -66,22 +67,8 @@ const RunGame = ({
 
   return (
     <>
-      <div className="score">
-        <h1>User Points: {userPoints}</h1>
-        <h1>Computer Points: {computerPoints}</h1>
-      </div>
-      <div className="result">
-        <h1>Turn Result: {turnResult}</h1>
-        <h1>Final Result: {result}</h1>
-      </div>
       <div>
-        <button
-          type="button"
-          className="btn btn-danger"
-          onClick={handleClickRound}
-        >
-          Check who wins
-        </button>
+        <h3>Turn Result: {turnResult}</h3>
       </div>
     </>
   );

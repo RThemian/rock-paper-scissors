@@ -19,9 +19,9 @@ const VolumeBanner = () => {
 
   return (
     <div className="bg-secondary d-flex flex-row-reverse">
-      <div className="rounded m-4">
-        <button className="rounded" onClick={playMusic}>
-          <img alt="volume" src="/images/volume.png" />
+      <div>
+        <button className="bg-secondary rounded-5" onClick={playMusic}>
+          <img alt="volume" src="/images/volume.png" className="bg-secondary" />
         </button>
       </div>
     </div>

@@ -13,8 +13,8 @@ const App = () => {
   const choices = ["rock", "paper", "scissors"];
   const [isSelected, setIsSelected] = useState(false);
 
-  const [userChoice, setUserChoice] = useState("rock");
-  const [computerChoice, setComputerChoice] = useState("rock");
+  const [userChoice, setUserChoice] = useState("");
+  const [computerChoice, setComputerChoice] = useState("");
 
   const handleClick = (value) => {
     setUserChoice(value);
@@ -43,44 +43,42 @@ const App = () => {
         <h1 className="title">Rock-Paper-Scissors</h1>
       </div>
       <div className="App">
-        <RunGame
-          userChoice={userChoice}
-          computerChoice={computerChoice}
-          userPoints={userPoints}
-          computerPoints={computerPoints}
-          setUserPoints={setUserPoints}
-          turnResult={turnResult}
-          setTurnResult={setTurnResult}
-          result={result}
-          setResult={setResult}
-          setGameOver={setGameOver}
-          setComputerPoints={setComputerPoints}
-        />
-
         <div className="choice container">
           <div className="choice-computer">
             <h2>COMPUTER {computerChoice ? computerChoice : ""}</h2>
-            <div className="button-div">
+            <div className="button-div-computer">
               {choices.map((choice, index) => (
                 //bring this button code to the images instead, can I map to those images this way?
 
                 <button
                   key={index}
+                  className="m-4 bg-primary rounded-3"
                   onClick={() => handleClick(choice)}
-                  className={isSelected ? "button-highlighted" : "user-hand"}
-                  disabled={gameOver}
+                  disabled={true}
                 >
                   {choice === "rock" ? (
-                    <img src={`/images/rock.png`} alt="" />
+                    <img
+                      className={
+                        computerChoice === "rock" ? "button-highlighted" : ""
+                      }
+                      src={`/images/rock.png`}
+                      alt=""
+                    />
                   ) : choice === "paper" ? (
                     <img
-                      className="user-hand"
+                      className={
+                        computerChoice === "paper" ? "button-highlighted" : ""
+                      }
                       src={`/images/paper.png`}
                       alt=""
                     />
                   ) : (
                     <img
-                      className="user-hand"
+                      className={
+                        computerChoice === "scissors"
+                          ? "button-highlighted"
+                          : ""
+                      }
                       src={`/images/scissors.png`}
                       alt=""
                     ></img>
@@ -90,39 +88,65 @@ const App = () => {
             </div>
           </div>
 
+          <RunGame
+            count={count}
+            userChoice={userChoice}
+            computerChoice={computerChoice}
+            userPoints={userPoints}
+            computerPoints={computerPoints}
+            setUserPoints={setUserPoints}
+            turnResult={turnResult}
+            setTurnResult={setTurnResult}
+            result={result}
+            setResult={setResult}
+            setGameOver={setGameOver}
+            setComputerPoints={setComputerPoints}
+          />
           <Countdown count={count} setCount={setCount} />
 
           <div class="container">
             <div class="row">
               <h2>USER {userChoice ? userChoice : ""}</h2>
-              <div className="button-div">
+              <div className="button-div-user">
                 {choices.map((choice, index) => (
                   //bring this button code to the images instead, can I map to those images this way?
 
                   <button
-                    className="button"
+                    className="m-4 bg-primary rounded-3"
                     key={index}
                     onClick={() => handleClick(choice)}
                     disabled={gameOver}
                   >
                     {choice === "rock" ? (
                       <img
-                        className="user-hand"
+                        className={
+                          userChoice === "rock"
+                            ? "button-highlighted"
+                            : "button-div-user"
+                        }
                         src={`/images/rock.png`}
                         alt=""
                       />
                     ) : choice === "paper" ? (
                       <img
-                        className="user-hand"
+                        className={
+                          userChoice === "paper"
+                            ? "button-highlighted"
+                            : "button-div-user"
+                        }
                         src={`/images/paper.png`}
                         alt=""
                       />
                     ) : (
                       <img
-                        className="user-hand"
+                        className={
+                          userChoice === "scissors"
+                            ? "button-highlighted"
+                            : "button-div-user"
+                        }
                         src={`/images/scissors.png`}
                         alt=""
-                      ></img>
+                      />
                     )}
                   </button>
                 ))}
