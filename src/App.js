@@ -32,7 +32,7 @@ const App = () => {
     window.location.reload();
   };
 
-  const [count, setCount] = useState(3);
+  const [count, setCount] = useState(5);
 
   //need to add component that controls the flow of the game here
 
@@ -40,7 +40,7 @@ const App = () => {
     <>
       <VolumeBanner />
       <div className="title container">
-        <h1 className="title">Rock-Paper-Scissors</h1>
+        <h1 className="display-1">Rock-Paper-Scissors</h1>
       </div>
       <div className="App">
         <div className="choice container">

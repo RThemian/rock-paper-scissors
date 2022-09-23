@@ -24,7 +24,7 @@ const RunGame = ({
 
   useEffect(() => {
     const comboMoves = userChoice + computerChoice;
-    if (userPoints <= 4 && computerPoints <= 4 && controlTurn) {
+    if (userPoints <= 4 && computerPoints <= 4 && count === 0) {
       if (
         comboMoves === "scissorspaper" ||
         comboMoves === "rockscissors" ||
@@ -68,7 +68,7 @@ const RunGame = ({
   return (
     <>
       <div>
-        <h3>Turn Result: {turnResult}</h3>
+        <h3>Turn Result: {turnResult} </h3>
       </div>
     </>
   );

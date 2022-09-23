@@ -12,7 +12,7 @@ const Countdown = ({ count, setCount }) => {
 
   return (
     <div>
-      <h1>{count}</h1>
+      <h1 className="display-1">You have {count} seconds to decide</h1>
     </div>
   );
 };
