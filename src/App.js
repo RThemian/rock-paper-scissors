@@ -115,7 +115,7 @@ const App = () => {
                     className="m-4 bg-primary rounded-3"
                     key={index}
                     onClick={() => handleClick(choice)}
-                    disabled={gameOver}
+                    disabled={count > 0 || turnResult !== null}
                   >
                     {choice === "rock" ? (
                       <img

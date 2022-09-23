@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const RunGame = ({
   userChoice,
@@ -15,6 +16,10 @@ const RunGame = ({
   setComputerPoints,
 }) => {
   const [controlTurn, setControlTurn] = useState(false);
+  const navigate = useNavigate();
+  const handlePlayAgain = () => {
+    navigate("/app");
+  };
   const handleClickRound = () => {
     setInterval(() => {
       setControlTurn(true);
@@ -69,6 +74,19 @@ const RunGame = ({
     <>
       <div>
         <h3>Turn Result: {turnResult} </h3>
+        {turnResult !== null ? (
+          <div className="mt-5 text-center">
+            <button
+              onClick={() => window.location.reload()}
+              type="button"
+              className="btn btn-danger btn-lg"
+            >
+              <h2 className="display-1">Play Again?</h2>
+            </button>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
     </>
   );

@@ -10,7 +10,6 @@ const Home = () => {
 
   const handlePlay = () => {
     navigate("/app");
-    // play();
   };
 
   return (
@@ -31,7 +30,7 @@ const Home = () => {
           type="button"
           className="btn btn-primary btn-lg"
         >
-          <h2 className="display-5">Play</h2>
+          <h2 className="display-1">Play</h2>
         </button>
       </div>
     </>
