@@ -27,6 +27,10 @@ const RunGame = ({
     setControlTurn(false);
   };
 
+  const handleHomeClick = () => {
+    navigate("/");
+  };
+
   useEffect(() => {
     const comboMoves = userChoice + computerChoice;
     if (userPoints <= 4 && computerPoints <= 4 && count === 0) {
@@ -73,15 +77,23 @@ const RunGame = ({
   return (
     <>
       <div>
-        <h3>Turn Result: {turnResult} </h3>
+        <h1 className="display-1">Turn Result: {turnResult} </h1>
         {turnResult !== null ? (
           <div className="mt-5 text-center">
             <button
               onClick={() => window.location.reload()}
               type="button"
-              className="btn btn-danger btn-lg"
+              className="btn btn-danger btn-lg m-2"
             >
-              <h2 className="display-1">Play Again?</h2>
+              <h2 className="display-6">Play Again?</h2>
+            </button>
+
+            <button
+              onClick={handleHomeClick}
+              type="button"
+              className="btn btn-primary btn-lg"
+            >
+              <h2 className="display-6">Home</h2>
             </button>
           </div>
         ) : (

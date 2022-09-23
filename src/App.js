@@ -32,7 +32,7 @@ const App = () => {
     window.location.reload();
   };
 
-  const [count, setCount] = useState(5);
+  const [count, setCount] = useState(3);
 
   //need to add component that controls the flow of the game here
 
@@ -153,17 +153,6 @@ const App = () => {
               </div>
             </div>
           </div>
-        </div>
-        <div className="button-div">
-          {gameOver && (
-            <button
-              type="button"
-              className="btn btn-warning font-weight-bold"
-              onClick={() => reset()}
-            >
-              Restart Game?
-            </button>
-          )}
         </div>
       </div>
     </>
