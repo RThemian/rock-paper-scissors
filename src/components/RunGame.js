@@ -4,14 +4,18 @@ import Countdown from "./Countdown";
 
 const RunGame = ({
   userChoice,
+
   computerChoice,
 
+  userPoints,
+
+  setUserPoints,
   count,
   setCount,
   result,
   turnResult,
   setTurnResult,
-  setResult,
+
   setGameOver,
 }) => {
   const navigate = useNavigate();
@@ -30,7 +34,7 @@ const RunGame = ({
 
   useEffect(() => {
     const comboMoves = userChoice + computerChoice;
-    if (count < 0) {
+    if (count === 0) {
       if (
         comboMoves === "scissorspaper" ||
         comboMoves === "rockscissors" ||
@@ -55,7 +59,7 @@ const RunGame = ({
         setTurnResult("No one gets a point!");
       }
     }
-  }, [computerChoice, userChoice, count, setTurnResult]);
+  }, [computerChoice, userChoice, setTurnResult, count]);
 
   return (
     <>
