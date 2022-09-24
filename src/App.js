@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import Countdown from "./components/Countdown";
+
 import RunGame from "./components/RunGame";
 import VolumeBanner from "./components/VolumeBanner";
 
@@ -9,7 +9,7 @@ const App = () => {
   const [computerPoints, setComputerPoints] = useState(0);
   const [turnResult, setTurnResult] = useState(null);
   const [result, setResult] = useState("Let's see who wins");
-  const [gameOver, setGameOver] = useState(false);
+
   const choices = ["rock", "paper", "scissors"];
   const [isSelected, setIsSelected] = useState(false);
 
@@ -21,6 +21,7 @@ const App = () => {
     setIsSelected(true);
     generateComputerChoice();
   };
+  const [count, setCount] = useState(3);
 
   const generateComputerChoice = () => {
     const randomChoice = choices[Math.floor(Math.random() * choices.length)];
@@ -32,20 +33,17 @@ const App = () => {
     window.location.reload();
   };
 
-  const [count, setCount] = useState(3);
-
   //need to add component that controls the flow of the game here
 
   return (
     <>
       <VolumeBanner />
       <div className="title container">
-        <h1 className="display-1">Rock-Paper-Scissors</h1>
+        <h1>Rock-Paper-Scissors</h1>
       </div>
       <div className="App">
         <div className="choice container">
           <div className="choice-computer">
-            <h2>COMPUTER {computerChoice ? computerChoice : ""}</h2>
             <div className="button-div-computer">
               {choices.map((choice, index) => (
                 //bring this button code to the images instead, can I map to those images this way?
@@ -89,9 +87,10 @@ const App = () => {
           </div>
 
           <RunGame
-            count={count}
             userChoice={userChoice}
             computerChoice={computerChoice}
+            count={count}
+            setCount={setCount}
             userPoints={userPoints}
             computerPoints={computerPoints}
             setUserPoints={setUserPoints}
@@ -99,14 +98,11 @@ const App = () => {
             setTurnResult={setTurnResult}
             result={result}
             setResult={setResult}
-            setGameOver={setGameOver}
             setComputerPoints={setComputerPoints}
           />
-          <Countdown count={count} setCount={setCount} />
 
           <div class="container">
             <div class="row">
-              <h2>USER {userChoice ? userChoice : ""}</h2>
               <div className="button-div-user">
                 {choices.map((choice, index) => (
                   //bring this button code to the images instead, can I map to those images this way?
@@ -115,7 +111,7 @@ const App = () => {
                     className="m-4 bg-primary rounded-3"
                     key={index}
                     onClick={() => handleClick(choice)}
-                    disabled={count > 0 || turnResult !== null}
+                    disabled={turnResult !== null || count > 0}
                   >
                     {choice === "rock" ? (
                       <img

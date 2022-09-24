@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import Countdown from "./Countdown";
 
 const RunGame = ({
   userChoice,
@@ -8,6 +9,7 @@ const RunGame = ({
   computerPoints,
   setUserPoints,
   count,
+  setCount,
   result,
   turnResult,
   setTurnResult,
@@ -15,20 +17,18 @@ const RunGame = ({
   setGameOver,
   setComputerPoints,
 }) => {
-  const [controlTurn, setControlTurn] = useState(false);
   const navigate = useNavigate();
-  const handlePlayAgain = () => {
-    navigate("/app");
-  };
-  const handleClickRound = () => {
-    setInterval(() => {
-      setControlTurn(true);
-    }, 500);
-    setControlTurn(false);
-  };
 
   const handleHomeClick = () => {
     navigate("/");
+  };
+  const countStyleWin = {
+    color: "gold",
+    fontSize: "30px",
+  };
+  const countStyleLose = {
+    color: "red",
+    fontSize: "30px",
   };
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const RunGame = ({
       ) {
         const updatedUserPoints = userPoints + 1;
         setUserPoints(updatedUserPoints);
-        setTurnResult("User gets the point!");
+        setTurnResult("User wins!");
         if (updatedUserPoints === 5) {
           setResult("User Wins");
           const gameOff = true;
@@ -56,7 +56,7 @@ const RunGame = ({
       ) {
         const updatedComputerPoints = computerPoints + 1;
         setComputerPoints(updatedComputerPoints);
-        setTurnResult("Computer gets the point!");
+        setTurnResult("Computer wins!");
         if (updatedComputerPoints === 5) {
           setResult("Computer Wins");
           const gameOff = true;
@@ -77,15 +77,20 @@ const RunGame = ({
   return (
     <>
       <div>
-        <h1 className="display-1">Turn Result: {turnResult} </h1>
+        <h4
+          style={turnResult === "User wins!" ? countStyleWin : countStyleLose}
+        >
+          {turnResult}{" "}
+        </h4>
+        {count !== 0 ? <Countdown count={count} setCount={setCount} /> : ""}
         {turnResult !== null ? (
-          <div className="mt-5 text-center">
+          <div className="mt-1 text-center">
             <button
               onClick={() => window.location.reload()}
               type="button"
               className="btn btn-danger btn-lg m-2"
             >
-              <h2 className="display-6">Play Again?</h2>
+              <h4 className="display-6">Play Again?</h4>
             </button>
 
             <button

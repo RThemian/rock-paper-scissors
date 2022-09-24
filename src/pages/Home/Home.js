@@ -1,8 +1,5 @@
 import React from "react";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useSound from "use-sound";
-import gameMusicElectric from "../../sounds/gameMusicElectric.mp3";
 import VolumeBanner from "./../../components/VolumeBanner";
 
 const Home = () => {
@@ -24,7 +21,7 @@ const Home = () => {
           <img alt="scissors" src="/images/scissors.png" />
         </div>
       </div>
-      <div className="mt-5 text-center">
+      <div className="m-5 p-5 text-center">
         <button
           onClick={handlePlay}
           type="button"
