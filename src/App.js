@@ -83,7 +83,9 @@ const App = () => {
 
           <RunGame
             userChoice={userChoice}
+            setUserChoice={setUserChoice}
             computerChoice={computerChoice}
+            setComputerChoice={setComputerChoice}
             count={count}
             setCount={setCount}
             userPoints={userPoints}

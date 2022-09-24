@@ -4,9 +4,9 @@ import Countdown from "./Countdown";
 
 const RunGame = ({
   userChoice,
-
+  setUserChoice,
   computerChoice,
-
+  setComputerChoice,
   userPoints,
 
   setUserPoints,
@@ -23,6 +23,14 @@ const RunGame = ({
   const handleHomeClick = () => {
     navigate("/");
   };
+
+  const handleReplay = () => {
+    setTurnResult(null);
+    setUserChoice("");
+    setComputerChoice("");
+    setCount(3);
+  };
+
   const countStyleWin = {
     color: "gold",
     fontSize: "30px",
@@ -73,7 +81,7 @@ const RunGame = ({
         {turnResult !== null ? (
           <div className="mt-1 text-center">
             <button
-              onClick={() => window.location.reload()}
+              onClick={() => handleReplay()}
               type="button"
               className="btn btn-danger btn-lg m-2"
             >
