@@ -5,9 +5,7 @@ import Countdown from "./Countdown";
 const RunGame = ({
   userChoice,
   computerChoice,
-  userPoints,
-  computerPoints,
-  setUserPoints,
+
   count,
   setCount,
   result,
@@ -15,7 +13,6 @@ const RunGame = ({
   setTurnResult,
   setResult,
   setGameOver,
-  setComputerPoints,
 }) => {
   const navigate = useNavigate();
 
@@ -33,20 +30,13 @@ const RunGame = ({
 
   useEffect(() => {
     const comboMoves = userChoice + computerChoice;
-    if (userPoints <= 4 && computerPoints <= 4 && count === 0) {
+    if (count < 0) {
       if (
         comboMoves === "scissorspaper" ||
         comboMoves === "rockscissors" ||
         comboMoves === "paperrock"
       ) {
-        const updatedUserPoints = userPoints + 1;
-        setUserPoints(updatedUserPoints);
         setTurnResult("User wins!");
-        if (updatedUserPoints === 5) {
-          setResult("User Wins");
-          const gameOff = true;
-          setGameOver(gameOff);
-        }
       }
 
       if (
@@ -54,14 +44,7 @@ const RunGame = ({
         comboMoves === "scissorsrock" ||
         comboMoves === "rockpaper"
       ) {
-        const updatedComputerPoints = computerPoints + 1;
-        setComputerPoints(updatedComputerPoints);
         setTurnResult("Computer wins!");
-        if (updatedComputerPoints === 5) {
-          setResult("Computer Wins");
-          const gameOff = true;
-          setGameOver(gameOff);
-        }
       }
 
       if (
@@ -72,7 +55,7 @@ const RunGame = ({
         setTurnResult("No one gets a point!");
       }
     }
-  }, [computerChoice, userChoice]);
+  }, [computerChoice, userChoice, count, setTurnResult]);
 
   return (
     <>

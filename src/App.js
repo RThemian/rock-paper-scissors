@@ -11,14 +11,13 @@ const App = () => {
   const [result, setResult] = useState("Let's see who wins");
 
   const choices = ["rock", "paper", "scissors"];
-  const [isSelected, setIsSelected] = useState(false);
 
   const [userChoice, setUserChoice] = useState("");
   const [computerChoice, setComputerChoice] = useState("");
 
   const handleClick = (value) => {
     setUserChoice(value);
-    setIsSelected(true);
+
     generateComputerChoice();
   };
   const [count, setCount] = useState(3);
@@ -27,10 +26,6 @@ const App = () => {
     const randomChoice = choices[Math.floor(Math.random() * choices.length)];
 
     setComputerChoice(randomChoice);
-  };
-
-  const reset = () => {
-    window.location.reload();
   };
 
   //need to add component that controls the flow of the game here
