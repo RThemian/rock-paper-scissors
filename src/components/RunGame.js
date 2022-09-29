@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Countdown from "./Countdown";
+import ModalResult from "./ModalResult";
 
 const RunGame = ({
   userChoice,
@@ -19,6 +20,10 @@ const RunGame = ({
   setGameOver,
 }) => {
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const handleHomeClick = () => {
     navigate("/");
@@ -78,6 +83,17 @@ const RunGame = ({
           {turnResult}{" "}
         </h4>
         {count !== 0 ? <Countdown count={count} setCount={setCount} /> : ""}
+        {turnResult !== null ? (
+          <ModalResult
+            show={show}
+            setShow={setShow}
+            handleClose={handleClose}
+            handleShow={handleShow}
+          />
+        ) : (
+          ""
+        )}
+
         {turnResult !== null ? (
           <div className="mt-1 text-center">
             <button
