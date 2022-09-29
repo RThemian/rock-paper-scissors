@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-
+import classnames from "classnames";
 import RunGame from "./components/RunGame";
 import VolumeBanner from "./components/VolumeBanner";
 
@@ -51,29 +51,44 @@ const App = () => {
                 >
                   {choice === "rock" ? (
                     <img
-                      className={
-                        computerChoice === "rock" ? "button-highlighted" : ""
-                      }
+                      className={classnames(
+                        computerChoice === "rock" && "button-highlighted",
+                        computerChoice === "paper" ||
+                          computerChoice === "scissors"
+                          ? "button-dark"
+                          : ""
+                      )}
                       src={`/images/rock.png`}
-                      alt=""
+                      alt="rock"
+                      height="142"
+                      width="242"
                     />
                   ) : choice === "paper" ? (
                     <img
-                      className={
-                        computerChoice === "paper" ? "button-highlighted" : ""
-                      }
+                      className={classnames(
+                        computerChoice === "paper" && "button-highlighted",
+                        computerChoice === "rock" ||
+                          computerChoice === "scissors"
+                          ? "button-dark"
+                          : ""
+                      )}
                       src={`/images/paper.png`}
-                      alt=""
+                      alt="paper"
+                      height="142"
+                      width="242"
                     />
                   ) : (
                     <img
-                      className={
-                        computerChoice === "scissors"
-                          ? "button-highlighted"
+                      className={classnames(
+                        computerChoice === "scissors" && "button-highlighted",
+                        computerChoice === "paper" || computerChoice === "rock"
+                          ? "button-dark"
                           : ""
-                      }
+                      )}
                       src={`/images/scissors.png`}
-                      alt=""
+                      alt="scissors"
+                      height="142"
+                      width="242"
                     ></img>
                   )}
                 </button>
@@ -112,33 +127,42 @@ const App = () => {
                   >
                     {choice === "rock" ? (
                       <img
-                        className={
-                          userChoice === "rock"
-                            ? "button-highlighted"
-                            : "button-div-user"
-                        }
+                        className={classnames(
+                          userChoice === "rock" && "button-highlighted",
+                          userChoice === "paper" || userChoice === "scissors"
+                            ? "button-dark"
+                            : ""
+                        )}
                         src={`/images/rock.png`}
-                        alt=""
+                        alt="rock"
+                        height="142"
+                        width="242"
                       />
                     ) : choice === "paper" ? (
                       <img
-                        className={
-                          userChoice === "paper"
-                            ? "button-highlighted"
-                            : "button-div-user"
-                        }
+                        className={classnames(
+                          userChoice === "paper" && "button-highlighted",
+                          userChoice === "rock" || userChoice === "scissors"
+                            ? "button-dark"
+                            : ""
+                        )}
                         src={`/images/paper.png`}
-                        alt=""
+                        alt="paper"
+                        height="142"
+                        width="242"
                       />
                     ) : (
                       <img
-                        className={
-                          userChoice === "scissors"
-                            ? "button-highlighted"
-                            : "button-div-user"
-                        }
+                        className={classnames(
+                          userChoice === "scissors" && "button-highlighted",
+                          userChoice === "rock" || userChoice === "paper"
+                            ? "button-dark"
+                            : ""
+                        )}
                         src={`/images/scissors.png`}
-                        alt=""
+                        alt="scissors"
+                        height="142"
+                        width="242"
                       />
                     )}
                   </button>

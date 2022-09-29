@@ -3,16 +3,12 @@ header {
   color: white;
 }
 
-/* button:hover {
-  background-color: yellow;
-} */
-
-/* .button-div-user:hover {
-  box-shadow: 0 0 10px 0 #00d7c3 inset, 0 0 20px 2px #00d7c3;
-} */
-
 .button-highlighted {
   box-shadow: 0 0 10px 0 #f4f00a inset, 0 0 20px 2px #f4f00a;
+}
+
+.button-dark {
+  visibility: hidden;
 }
 
 .topPage {
