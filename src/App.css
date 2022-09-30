@@ -11,6 +11,27 @@ header {
   visibility: hidden;
 }
 
+@media only screen and (max-width: 600px) {
+  button {
+    max-width: 25%;
+    height: auto;
+    background: red;
+    display: inline-block;
+  }
+  img {
+    max-width: 35%;
+    height: auto;
+  }
+}
+
+#image-grid img {
+  width: 25%;
+}
+
+#image-grid img {
+  width: 250px;
+}
+
 .topPage {
   background-color: gray;
   text-align: center;

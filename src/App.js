@@ -39,7 +39,7 @@ const App = () => {
       <div className="App">
         <div className="choice container">
           <div className="choice-computer">
-            <div className="button-div-computer">
+            <div id="image-grid" className="button-div-computer">
               {choices.map((choice, index) => (
                 //bring this button code to the images instead, can I map to those images this way?
 
@@ -113,9 +113,9 @@ const App = () => {
             setComputerPoints={setComputerPoints}
           />
 
-          <div class="container">
-            <div class="row">
-              <div className="button-div-user">
+          <div className="container">
+            <div className="row">
+              <div id="image-grid" className="button-div-user">
                 {choices.map((choice, index) => (
                   //bring this button code to the images instead, can I map to those images this way?
 
